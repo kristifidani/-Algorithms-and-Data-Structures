@@ -1,51 +1,58 @@
+# Hotel Management System with Custom Algorithms and Data Structures
+
 ## Introduction
 
-A Hotel Management System (HMS) application with manually implemented Algorithms and Data Structures (ADS), without the use of any third-party code or Java libraries (e.g. java.Util). 
-This system is going to be responsible for managing a hotel for a single day.  
-Some clients are going to check in, others are going to check out and some rooms need to be cleaned. 
+Welcome to the Hotel Management System (HMS) application, where Algorithms and Data Structures (ADS) are manually implemented to create an efficient and comprehensive solution for managing a hotel's operations within a single day. The system handles guest check-ins, check-outs, and room cleaning, showcasing the power of custom algorithms and data structures to streamline the hotel management process.
 
-#### Properties
-1. A hotel consists of:
-    - rooms
-    - clients
-    - wings
-  
-2. The room is characterized by these properties:
+## System Properties
 
-    - Wing
-    - Room number
-    - Status of the room - READY (free&clean) / OCCUPIED / CHECKED OUT
-    - Unique id
+The hotel management system encompasses key components that interact seamlessly to ensure smooth operations:
 
-    There are 2 types of rooms:
-    - A double room can accommodate 2 people and needs 1 hour to be cleaned.
-    - A family room can accommodate 4 people and needs 2 hours to be cleaned.
+1. **Hotel Components**:
+   - Rooms: Different types of rooms, each with its own characteristics and statuses.
+   - Clients: Guests checking in and out of the hotel.
+   - Wings: Distinct sections of the hotel that impact room assignments and cleaning orders.
 
-3. The client is characterized by these properties:
+2. **Room Characteristics**:
 
-    - Name
-    - EmailAddress
-    - Unique id
-    - Hotel Room
+   Rooms are defined by their properties, including:
+   - Wing: The section of the hotel the room belongs to.
+   - Room number: A unique identifier for each room.
+   - Room status: Indicating whether the room is ready, occupied, or checked out.
+   - Unique ID: A system-generated identifier for each room.
 
-#### Check-in and Check-out
+   The system classifies rooms into two types:
+   - Double rooms: Accommodates two people and requires one hour for cleaning.
+   - Family rooms: Accommodates four people and requires two hours for cleaning.
 
-When a new client is checking in to the hotel, the following happens:
+3. **Client Characteristics**:
 
-- If there is a room with the status “Ready”, the check-in can be completed. The “Ready” room can accommodate the new client and the room’s status changes to “Occupied”. The client doesn’t have to wait.
-- If there is not a “Ready” room but there is a “CheckedOut” room available, it can be assigned to a client. The client has to wait for the room to be cleaned.
-- When a client checks out from a room, the status of that room changes to “CheckedOut” and the room needs to be cleaned before a new client can check in to it.
+   Clients are characterized by their information, which includes:
+   - Name: Guest's name.
+   - Email address: Contact information for communication.
+   - Unique ID: A distinct identifier assigned to each guest.
+   - Hotel room: The room assigned to the guest upon check-in.
 
-#### Cleaning
+## Check-in and Check-out Process
 
-The cleaning order of the rooms depends on:
+The hotel's check-in and check-out process follows a structured approach:
 
-- The wing plan of the hotel. (shortest path algorithm implemented)
-- The priority rule: Family rooms have priority over Double rooms.
-- All rooms with the status “checkedOut” need to be cleaned.
- 
+- If a "Ready" room is available, a new guest can check in immediately, and the room's status changes to "Occupied".
+- In the absence of "Ready" rooms, a "Checked Out" room is assigned to the guest, but cleaning is required before occupancy.
+- Upon check-out, a room's status transitions to "Checked Out", and it needs cleaning before the next guest arrives.
 
-## Data Structures implemented
+## Cleaning and Prioritization
+
+Room cleaning is managed based on:
+
+- The wing layout, using a shortest path algorithm, which optimizes the order of cleaning.
+- A priority rule, giving family rooms precedence over double rooms in the cleaning order.
+- All "Checked Out" rooms must undergo cleaning before being assigned to a new guest.
+
+## Implemented Data Structures
+
+This project showcases the implementation of essential data structures, including:
+
 - Vector
 - LinkedList
 - Queue
@@ -54,3 +61,5 @@ The cleaning order of the rooms depends on:
 - Binary Tree
 - Red and Black Tree
 - Graph
+
+By leveraging these custom data structures and algorithms, the Hotel Management System demonstrates enhanced efficiency, accurate room assignments, and a seamless experience for both guests and hotel staff.
